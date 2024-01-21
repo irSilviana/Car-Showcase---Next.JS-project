@@ -14,13 +14,16 @@ const SearchManufacturer = ({
   const [query, setQuery] = useState('');
 
   const filteredManufacturers =
-    query === ''
-      ? manufacturers
-      : manufacturers.filter((item) =>
-          item
-            .toLowerCase()
-            .replace(/\s+/g, '')
-            .includes(query.toLowerCase().replace(/\s+/g, ''))
+    query === '' // If the search query is empty
+      ? manufacturers // Return all manufacturers
+      : manufacturers.filter(
+          (
+            item // return manufacturer that includes query value
+          ) =>
+            item
+              .toLowerCase() // convert manufacturer name to lowercase
+              .replace(/\s+/g, '') // remove whitespace from manufacturer name
+              .includes(query.toLowerCase().replace(/\s+/g, '')) // check if the manufacturer name includes the search query
         );
 
   return (
